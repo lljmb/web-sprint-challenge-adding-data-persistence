@@ -24,7 +24,8 @@ const getProjectById = async (id) => {
     const project = await db('projects')
     .where('project_id', id)
 
-    project.project_completed === 1 ? project.project_completed = false : project.project_completed = true;
+//  project_completed - the database defaults it to false (integer 0) if not provided
+    project.project_completed === 0 ? project.project_completed = false : project.project_completed = true;
 
     return project
 }

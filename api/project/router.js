@@ -3,6 +3,7 @@ const router = require('express').Router()
 
 const Projects = require('./model')
 
+// [GET] /api/projects
 router.get('/', (req, res) => {
     Projects.getProjects()
         .then(projects => {
@@ -13,6 +14,7 @@ router.get('/', (req, res) => {
         })
 })
 
+// [POST] /api/projects
 router.post('/', (req, res) => {
     const projectData = req.body
     Projects.create(projectData)

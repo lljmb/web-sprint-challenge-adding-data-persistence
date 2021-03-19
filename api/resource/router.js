@@ -3,6 +3,7 @@ const router = require('express').Router()
 const db = require('../../data/dbConfig')
 const Resources = require('./model')
 
+// [GET] /api/resources
 router.get('/', (req, res) => {
     db('resources')
         .then(resources => {
@@ -13,6 +14,7 @@ router.get('/', (req, res) => {
         })
 })
 
+// [POST] /api/projects
 router.post('/', (req, res) => {
     const resourceData = req.body
 
